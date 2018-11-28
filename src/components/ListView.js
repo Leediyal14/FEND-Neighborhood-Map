@@ -39,7 +39,7 @@ export default class ListView extends Component {
 
     render() {
         return (
-            <div className="listView">
+            <div className="listView" aria-label="Sidebar" role="navigation">
                 <h2>Museums In Ooty</h2>
                 <input 
                     type={"search"} 

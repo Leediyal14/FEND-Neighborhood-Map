@@ -66,7 +66,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
+      <div className="App" aria-label="Home" role="application">
         <Map {...this.state} handleClick = {this.handleClick} />
         <ListView {...this.state} handleListClick={this.handleListClick} />
       </div>
