@@ -1,4 +1,5 @@
 class Helper {
+    
     static baseURL() {
         return "https://api.foursquare.com/v2"
     }
@@ -6,7 +7,7 @@ class Helper {
         const keys = {
             client_id: "ICN1F4HULSQA42LDTNL04DPF4T2BBZBUATHHR43X3UK4B4L1",
             client_secret: "RUSMZTKVV3TABPCOC1NTH532R2DA4PQTON2S4HMELETILQD2",
-            v: 20181126
+            v: 20181120
         };
         return Object.keys(keys)
             .map(key => `${key}=${keys[key]}`)
@@ -38,6 +39,7 @@ class Helper {
 }
 
 export default class FoursquareAPI {
+
     static search(urlParams) {
         return Helper.simpleFetch("/venues/search", "GET", urlParams);
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Map from './components/Map.js';
 import FoursquareAPI from './components/FoursquareAPI.js';
+import ListView from './components/ListView';
 
 class App extends Component {
 
@@ -11,8 +12,11 @@ class App extends Component {
       venues: [],
       markers: [],
       center: [],
-      zoom: 12
-    }
+      zoom: 13,
+      updateSuperState: obj => {
+        this.setState(obj);
+      }
+    };
   }
 
   closeMarkers = () => {
@@ -21,7 +25,7 @@ class App extends Component {
       return marker;
     });
     this.setState({markers: Object.assign(this.state.markers, markers)});
-  }
+  };
 
   handleClick = (marker) => {
     this.closeMarkers();
@@ -34,6 +38,11 @@ class App extends Component {
         this.setState({venues: Object.assign(this.state.venues, newVenue)});
       console.log(newVenue);
     });
+  };
+
+  handleListClick = (venue) => {
+    const marker = this.state.markers.find(marker => marker.id === venue.id);
+    this.handleClick(marker);
   };
 
   componentDidMount(){
@@ -53,14 +62,13 @@ class App extends Component {
         };
       });
       this.setState({venues, center, markers});
-      console.log(results.response.venues)
     });
   }
   render() {
     return (
       <div className="App">
-        <Map {...this.state}
-        handleClick = {this.handleClick}/>
+        <Map {...this.state} handleClick = {this.handleClick} />
+        <ListView {...this.state} handleListClick={this.handleListClick} />
       </div>
     );
   }
