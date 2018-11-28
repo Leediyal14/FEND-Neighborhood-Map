@@ -58,6 +58,6 @@
 
    * To learn React, check out the [React documentation](https://reactjs.org/).
 
-   * Google Maps JavaScript API(https://developers.google.com/maps/documentation/javascript/tutorial)
+   * [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial)
 
 **Thank You**
