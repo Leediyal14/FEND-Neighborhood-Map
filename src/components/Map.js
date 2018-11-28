@@ -4,6 +4,7 @@ import markerIcon from './pointer.png';
 
 const MyMapComponent = withScriptjs(withGoogleMap((props =>
     
+    // Creating Markers and InfoWindows based on venues
     <GoogleMap
         defaultZoom={8}
         zoom={props.zoom}
@@ -41,10 +42,12 @@ const MyMapComponent = withScriptjs(withGoogleMap((props =>
 ))
 );
 
+// Map component - to load the google map 
 export default class Map extends Component {
 
     render() {
         return(
+            // Loading the Google map
             <MyMapComponent
                 {...this.props}
                 googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBTi9iAGPvuejPFOjQAs-1JhcFMtDNrd68"

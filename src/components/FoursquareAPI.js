@@ -1,10 +1,12 @@
 class Helper {
-    
+
+    // Getting the baseURL of Foursquare API
     static baseURL() {
         return "https://api.foursquare.com/v2"
     }
     static auth() {
         const keys = {
+            // Adding my client id, client secret and version 
             client_id: "ICN1F4HULSQA42LDTNL04DPF4T2BBZBUATHHR43X3UK4B4L1",
             client_secret: "RUSMZTKVV3TABPCOC1NTH532R2DA4PQTON2S4HMELETILQD2",
             v: 20181120
@@ -26,6 +28,8 @@ class Helper {
             Accept: "application/json"
         };
     }
+    
+    // Fetching from 3rd party API
     static simpleFetch(endPoint, method, urlParams) {
         let requestData = {
             method,
