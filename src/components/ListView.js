@@ -50,6 +50,8 @@ export default class ListView extends Component {
                     type={"search"} 
                     id={"search"} 
                     placeholder={"Search Museum"} 
+                    aria-label={"text filter"}
+                    tabIndex={0}
                     onChange={this.handleInput}
                 />
                 <ListItems 

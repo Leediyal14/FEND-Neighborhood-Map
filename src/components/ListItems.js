@@ -6,7 +6,7 @@ export default class ListItems extends Component {
 
     render() {
         return (
-            <ol className="listItems">
+            <ol className="listItems" tabIndex={-1}>
                 {this.props.venues && this.props.venues.map((venue, index) => 
                     <List 
                         key={index} {...venue} 

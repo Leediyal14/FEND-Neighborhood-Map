@@ -7,8 +7,8 @@ class Helper {
     static auth() {
         const keys = {
             // Adding my client id, client secret and version 
-            client_id: "ICN1F4HULSQA42LDTNL04DPF4T2BBZBUATHHR43X3UK4B4L1",
-            client_secret: "RUSMZTKVV3TABPCOC1NTH532R2DA4PQTON2S4HMELETILQD2",
+            client_id: "RWEN2IQABZYQKYCTLQG2TZ3PUPC05YZHEUR3QMTSA5PFKSV2",
+            client_secret: "MFEGABVJ11AJFBYLNHVXHLXEVFC3OZI0NVZ2WFTMLMX10UU2",
             v: 20181120
         };
         return Object.keys(keys)
@@ -31,14 +31,13 @@ class Helper {
     
     // Fetching from 3rd party API
     static simpleFetch(endPoint, method, urlParams) {
+        // eslint-disable-next-line
         let requestData = {
             method,
             headers: Helper.headers()
         };
-        return fetch(`${Helper.baseURL()}${endPoint}?${Helper.auth()}&${Helper.urlBuilder(
-            urlParams
-        )}`
-        ).then(res => res.json());
+        return fetch(`${Helper.baseURL()}${endPoint}?${Helper.auth()}&${Helper.urlBuilder(urlParams)}`)
+        .then(res => res.json());
     }
 }
 

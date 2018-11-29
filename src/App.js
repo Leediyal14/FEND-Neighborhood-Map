@@ -3,6 +3,7 @@ import './App.css';
 import Map from './components/Map.js';
 import FoursquareAPI from './components/FoursquareAPI.js';
 import ListView from './components/ListView';
+import ErrorBoundary from './components/ErrorBoundary';
 
 class App extends Component {
 
@@ -68,20 +69,28 @@ class App extends Component {
         };
       });
       this.setState({venues, center, markers});
-    });
+    })
+    .catch((error) =>
+      alert("Error while fetching location data from Foursquare API")
+    );
   }
 
   render() {
     return (
-      <div className="App" aria-label="Home" role="application">
-        <Map 
-          {...this.state} 
-          handleClick = {this.handleClick} 
-        />
-        <ListView 
-          {...this.state} 
-          handleListClick={this.handleListClick} 
-        />
+      <div className="App" aria-label="main" role="application">
+        <ErrorBoundary>
+          <Map 
+            {...this.state} 
+            handleClick = {this.handleClick} 
+          />
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <ListView 
+            {...this.state} 
+            handleListClick={this.handleListClick} 
+          />
+        </ErrorBoundary>
       </div>
     );
   }
